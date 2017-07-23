@@ -18,12 +18,48 @@
     <ClCompile Include="CMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CExample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CStateTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CDirectx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CGraphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CExample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CStateTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CMacro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CDirectx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CGraphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

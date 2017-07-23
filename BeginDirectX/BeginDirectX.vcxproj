@@ -39,7 +39,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\zero\Documents\Visual Studio 2013\Projects\BeginDirectX\zero;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\zero\Documents\Visual Studio 2013\Projects\BeginDirectX\zero;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\zero\Documents\Visual Studio 2013\Projects\BeginDirectX\Debug;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -49,6 +50,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>zero.lib;d3d9.lib;d3dx9.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -66,11 +68,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CDirectx.cpp" />
+    <ClCompile Include="CExample.cpp" />
+    <ClCompile Include="CGame.cpp" />
+    <ClCompile Include="CGraphics.cpp" />
     <ClCompile Include="CMain.cpp" />
+    <ClCompile Include="CStateTest.cpp" />
+    <ClCompile Include="CWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDirectx.h" />
     <ClInclude Include="CExample.h" />
+    <ClInclude Include="CGame.h" />
+    <ClInclude Include="CGraphics.h" />
+    <ClInclude Include="CMacro.h" />
     <ClInclude Include="CMain.h" />
+    <ClInclude Include="CStateTest.h" />
+    <ClInclude Include="CWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
