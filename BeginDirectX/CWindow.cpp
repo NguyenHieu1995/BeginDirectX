@@ -1,10 +1,12 @@
 #include "CWindow.h"
 
-CWindow::CWindow()
+HINSTANCE CWindow::m_hInstance = NULL;
+
+CWindow::CWindow(HINSTANCE hIstance)
 {
-	m_hInstance = NULL;
 	m_hWnd = NULL;
 	m_isFullScreen = false;
+	m_hInstance = hIstance;
 }
 
 CWindow::~CWindow()

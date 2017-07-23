@@ -26,10 +26,11 @@ enum WindowSize
 class CWindow
 {
 public:
-	CWindow();
+	CWindow(HINSTANCE hInstace = NULL);
 	~CWindow();
 
 protected:
+	static HINSTANCE m_hInstance;
 	HWND m_hWnd;
 	RECT m_rc;
 	BOOL m_isFullScreen;
@@ -42,6 +43,7 @@ protected:
 public:
 	HRESULT CreateDesktopWindow(BOOL isFullScreen = false);
 	HWND GetWindowHandle() { return m_hWnd; };
+	static HINSTANCE GetInstanceHandle(){ return m_hInstance; }
 	INT32 GetHeight() { return m_rc.bottom - m_rc.top; }
 	INT32 GetWidth(){ return m_rc.right - m_rc.left; }
 
@@ -54,7 +56,5 @@ public:
 
 	
 };
-
-static HINSTANCE m_hInstance;
 
 #endif

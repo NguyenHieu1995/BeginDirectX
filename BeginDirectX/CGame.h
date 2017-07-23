@@ -9,6 +9,7 @@
 
 #include "CWindow.h"
 #include "CDirectx.h"
+#include "CGraphics.h"
 
 class CGame
 {
@@ -17,14 +18,15 @@ public:
 	~CGame();
 
 public:
-	void Run();
+	void Run(HINSTANCE hInstance = NULL);
 
 protected:
 	CWindow* m_pWindow;
 	CDirectx* m_pDirectx;
+	CGraphics* m_pGraphics;
 
 protected:
-	bool Init();
+	bool Init(HINSTANCE hInstance);
 	void Destroy();
 
 };

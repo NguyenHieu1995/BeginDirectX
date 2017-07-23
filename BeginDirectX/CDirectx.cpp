@@ -55,7 +55,3 @@ HRESULT CDirectx::InitD3D(CWindow window, bool isFullScreen)
 	return hr;
 }
 
-void CDirectx::Render()
-{
-	
-}

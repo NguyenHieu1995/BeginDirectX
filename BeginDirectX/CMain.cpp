@@ -15,11 +15,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	HRESULT hr = S_OK;
 
-	m_hInstance = hInstance;
-
 	// return this part of the WM_QUIT message to Windows
 	CGame* game = new CGame();
-	game->Run();
+	game->Run(hInstance);
 
 	_CrtDumpMemoryLeaks();
 	UNREFERENCED_PARAMETER(lpCmdLine);

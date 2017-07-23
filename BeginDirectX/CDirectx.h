@@ -18,8 +18,6 @@ public:
 public:
 	HRESULT InitD3D(CWindow, bool isFullScreen = false);
 
-	void Render();
-
 	LPDIRECT3D9 GetD3D() { return m_lpD3D; }
 	LPDIRECT3DDEVICE9 GetDevice(){ return m_lpDevice; }
 

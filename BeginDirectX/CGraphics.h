@@ -13,11 +13,11 @@ LPDIRECT3DSURFACE9 LoadSurface(LPDIRECT3DDEVICE9 device, std::string path);
 class CGraphics
 {
 public:
-	CGraphics();
+	CGraphics(LPDIRECT3DDEVICE9);
 	~CGraphics();
 
 public:
-	void DrawTexture();
+	void DrawTexture(LPDIRECT3DTEXTURE9, D3DXVECTOR2, D3DCOLOR);
 	void DrawSurface();
 
 	void Begin(LPDIRECT3DDEVICE9);

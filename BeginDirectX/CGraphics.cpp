@@ -57,9 +57,9 @@ LPDIRECT3DSURFACE9 LoadSurface(LPDIRECT3DDEVICE9 device, std::string path)
 	return surface;
 }
 
-CGraphics::CGraphics()
+CGraphics::CGraphics(LPDIRECT3DDEVICE9 device)
 {
-	m_pSprite = NULL;	
+	D3DXCreateSprite(device, &m_pSprite);
 }
 
 CGraphics::~CGraphics()
@@ -83,3 +83,18 @@ void CGraphics::End(LPDIRECT3DDEVICE9 device)
 	device->Present(NULL, NULL, NULL, NULL);   // displays the created frame on the screen
 }
 
+void CGraphics::DrawSurface()
+{
+
+}
+
+void CGraphics::DrawTexture(LPDIRECT3DTEXTURE9 texture, D3DXVECTOR2 postion, D3DCOLOR color)
+{
+	m_pSprite->Draw(
+		texture,
+		NULL,
+		NULL,
+		&D3DXVECTOR3(postion.x, postion.y, 0),
+		color
+		);
+}
