@@ -10,6 +10,10 @@
 #include "CWindow.h"
 #include "CDirectx.h"
 #include "CGraphics.h"
+#include "CFrameTime.h"
+#include "CObjectDynamic.h"
+#include "CObjectPlayer.h"
+#include "CObjectStatic.h"
 
 class CGame
 {
@@ -24,6 +28,7 @@ protected:
 	CWindow* m_pWindow;
 	CDirectx* m_pDirectx;
 	CGraphics* m_pGraphics;
+	CFrameTime* m_pFrameTime;
 
 protected:
 	bool Init(HINSTANCE hInstance);

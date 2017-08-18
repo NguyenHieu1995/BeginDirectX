@@ -7,6 +7,7 @@ CGame::CGame()
 	m_pWindow = NULL;
 	m_pDirectx = NULL;
 	m_pGraphics = NULL;
+	m_pFrameTime = NULL;
 }
 
 CGame::~CGame()
@@ -34,6 +35,8 @@ bool CGame::Init(HINSTANCE hInstance)
 
 	m_pGraphics = new CGraphics(m_pDirectx->GetDevice());
 
+	m_pFrameTime = new CFrameTime();
+
 	return true;
 }
 
@@ -46,8 +49,13 @@ void CGame::Run(HINSTANCE hInstance)
 
 	HRESULT hr = S_OK;
 
-	CObject object;
-	object.Init(m_pDirectx);
+	CObjectStatic objectStatic;
+	CObjectDynamic objectDynamic;
+	CObjectPlayer objectPlayer;
+
+	objectDynamic.Init(m_pDirectx);
+	objectStatic.Init(m_pDirectx);
+	objectPlayer.Init(m_pDirectx);
 
 	CInput input;
 	input.Init(m_pWindow);
@@ -56,6 +64,8 @@ void CGame::Run(HINSTANCE hInstance)
 	{
 		ShowWindow(m_pWindow->GetWindowHandle(), SW_SHOW);
 	}
+
+	m_pFrameTime->Reset();
 
 	// The render loop is controlled here.
 	//bool bGotMsg;
@@ -68,7 +78,7 @@ void CGame::Run(HINSTANCE hInstance)
 	{
 		// Process window events.
 
-		if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			// Translate and dispatch the message
 			TranslateMessage(&msg);
@@ -86,20 +96,31 @@ void CGame::Run(HINSTANCE hInstance)
 			// Present the frame to the screen.
 			//deviceResources->Present();
 
+			//Update Time
+			m_pFrameTime->Update();
+
+			//Update Keyboard
 			input.GetState();
 
+			//Update Game
+			objectPlayer.Update(m_pFrameTime->getDeltaTime(), &input);
+			objectStatic.Update(m_pFrameTime->getDeltaTime());
+			objectDynamic.Update(m_pFrameTime->getDeltaTime());
+
+			//Render
 			m_pGraphics->Begin(m_pDirectx->GetDevice());
-
-			object.Update(&input);
-			object.Render(m_pGraphics);
-
-
+			objectStatic.Render(m_pGraphics);
+			objectPlayer.Render(m_pGraphics);
+			objectDynamic.Render(m_pGraphics);
 			m_pGraphics->End(m_pDirectx->GetDevice());
 		}
 	}
 
+	objectDynamic.Destroy();
+	objectStatic.Destroy();
+	objectPlayer.Destroy();
 
-	this->Destroy(); 
+	this->Destroy();
 }
 
 void CGame::Destroy()

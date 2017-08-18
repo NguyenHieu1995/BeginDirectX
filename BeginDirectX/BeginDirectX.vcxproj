@@ -70,23 +70,31 @@
   <ItemGroup>
     <ClCompile Include="CDirectx.cpp" />
     <ClCompile Include="CExample.cpp" />
+    <ClCompile Include="CFrameTime.cpp" />
     <ClCompile Include="CGame.cpp" />
     <ClCompile Include="CGraphics.cpp" />
     <ClCompile Include="CInput.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="CObject.cpp" />
+    <ClCompile Include="CObjectDynamic.cpp" />
+    <ClCompile Include="CObjectPlayer.cpp" />
+    <ClCompile Include="CObjectStatic.cpp" />
     <ClCompile Include="CStateTest.cpp" />
     <ClCompile Include="CWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CDirectx.h" />
     <ClInclude Include="CExample.h" />
+    <ClInclude Include="CFrameTime.h" />
     <ClInclude Include="CGame.h" />
     <ClInclude Include="CGraphics.h" />
     <ClInclude Include="CInput.h" />
     <ClInclude Include="CMacro.h" />
     <ClInclude Include="CMain.h" />
     <ClInclude Include="CObject.h" />
+    <ClInclude Include="CObjectDynamic.h" />
+    <ClInclude Include="CObjectPlayer.h" />
+    <ClInclude Include="CObjectStatic.h" />
     <ClInclude Include="CStateTest.h" />
     <ClInclude Include="CWindow.h" />
   </ItemGroup>
